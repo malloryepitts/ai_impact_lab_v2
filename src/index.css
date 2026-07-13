@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #A8924A;
+  --color-primary-content: #000000;
+  --color-secondary: #1a1a1a;
+  --color-secondary-content: #ffffff;
+  --color-accent: #9E8A5A;
+  --color-accent-content: #ffffff;
+  --color-base-100: #ffffff;
+  --color-base-200: #F7F7F5;
+  --color-base-300: #E8E4DB;
+  --color-base-content: #111111;
+  --color-neutral: #1a1a1a;
+  --color-neutral-content: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #111111;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Design System Utilities ────────────────────────────────────────────── */
+
+@layer components {
+  /* Eyebrow label — short gold rule + tight uppercase text.
+     Left-aligned by default; override text-center in context if needed. */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-lab-gold;
+  }
+
+  /* --- Type scale ---------------------------------------------------------- */
+  /* Hero / display heading (largest) */
+  .heading-display {
+    @apply font-display font-semibold tracking-tight leading-[1.05];
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+  }
+
+  /* Section heading (second level) */
+  .heading-section {
+    @apply font-display font-semibold leading-tight;
+    font-size: clamp(1.875rem, 4vw, 3rem);
+  }
+
+  /* Card / sub-section heading (third level) */
+  .heading-card {
+    @apply font-display font-semibold text-xl md:text-2xl leading-snug;
+  }
+
+  /* --- Section padding tokens ---------------------------------------------- */
+  /* Extra spacious — hero-adjacent or standalone marquee sections */
+  .section-xl {
+    @apply py-28 md:py-40;
+  }
+
+  /* Standard content section */
+  .section-lg {
+    @apply py-20 md:py-28;
+  }
+
+  /* Compact sub-section or CTA band */
+  .section-md {
+    @apply py-16 md:py-20;
+  }
+
+  /* --- Buttons ------------------------------------------------------------- */
+  /* Primary action — gold fill, works on any background */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           bg-lab-gold text-lab-black font-semibold rounded
+           hover:bg-lab-gold-dark hover:text-white
+           transition-all duration-300 text-base
+           motion-safe:hover:-translate-y-0.5;
+  }
+
+  /* Secondary — outlined, designed for dark backgrounds */
+  .btn-outline-dark {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           border border-white/30 text-white font-semibold rounded
+           hover:border-white/60 hover:bg-white/10
+           transition-all duration-300 text-base;
+  }
+
+  /* --- Card interactive treatment ----------------------------------------- */
+  /* Subtle lift on hover — apply to any card wrapper */
+  .card-interactive {
+    @apply transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+}
+
+/* Eyebrow gold rule — short horizontal bar before the label text */
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background-color: #A8924A;
+  flex-shrink: 0;
+}
