@@ -35,7 +35,7 @@ function LabPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-5xl md:text-6xl font-semibold text-white leading-tight mb-6"
           >
-            The AI Impact Lab
+            The AI Impact Clinic
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -61,7 +61,7 @@ function LabPage() {
             <AnimatedSection delay={0.1}>
               <div className="space-y-6 text-lab-charcoal leading-relaxed">
                 <p>
-                  The Spring AI Impact Lab is a selective continuation of the fall course. Roughly 20 students are invited to participate, forming five teams of four or five.
+                  The Spring AI Impact Clinic is a selective continuation of the fall course. Roughly 20 students are invited to participate, forming five teams of four or five.
                 </p>
                 <p>
                   Each team is matched with a real local organization in Winston-Salem - a business, nonprofit, or community partner - facing a genuine challenge where AI tools could create meaningful value.
@@ -97,7 +97,7 @@ function LabPage() {
           <AnimatedSection>
             <h3 className="font-display text-3xl font-semibold text-lab-black mb-4">Start with the Fall Course.</h3>
             <p className="text-lab-charcoal leading-relaxed mb-8 text-base max-w-xl mx-auto">
-              Spring lab selection is drawn from fall course completers. The path to the lab begins in the fall.
+              Spring Clinic selection is drawn from fall course completers. The path to the Clinic begins in the fall.
             </p>
             <Link
               to="/course"

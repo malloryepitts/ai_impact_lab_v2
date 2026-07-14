@@ -8,7 +8,7 @@ const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Course', to: '/course' },
-  { label: 'Impact Lab', to: '/lab' },
+  { label: 'Impact Clinic', to: '/lab' },
 ]
 
 export function Navbar() {
@@ -49,7 +49,7 @@ export function Navbar() {
             />
             <span className="text-4xl font-bold tracking-tight">
               <span className="text-lab-gold">AI</span>
-              <span className={cn(scrolled ? 'text-lab-black' : 'text-white')}> Impact Lab</span>
+              <span className={cn(scrolled ? 'text-lab-black' : 'text-white')}> Impact Clinic</span>
             </span>
           </Link>
 

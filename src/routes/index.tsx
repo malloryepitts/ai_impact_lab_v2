@@ -84,7 +84,7 @@ function HomePage() {
             transition={{ duration: 0.65, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-white/70 text-xl md:text-2xl leading-relaxed max-w-2xl mb-12"
           >
-            The AI Impact Lab at Wake Forest teaches students across every major to use AI tools effectively, responsibly, and with purpose. One credit hour. No experience required.
+            The AI Impact Clinic at Wake Forest teaches students across every major to use AI tools effectively, responsibly, and with purpose. One credit hour. No experience required.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -173,7 +173,7 @@ function HomePage() {
           <AnimatedSection>
             <p className="eyebrow mb-6">How it works</p>
             <h2 className="heading-section text-white mb-14 text-3xl md:text-4xl">
-              The AI Impact Lab Track.
+              The AI Impact Clinic Track.
             </h2>
           </AnimatedSection>
 
@@ -210,7 +210,7 @@ function HomePage() {
                   <FlaskConical size={20} className="text-lab-gold" />
                 </div>
                 <p className="eyebrow mb-2">Step Two · Spring</p>
-                <h3 className="heading-card text-white mb-2">The Impact Lab</h3>
+                <h3 className="heading-card text-white mb-2">The Impact Clinic</h3>
                 <p className="text-white/65 text-base leading-relaxed">
                   A selective continuation for students who complete the course. Work on a small team paired with a real local organization to design and deploy an AI solution to a genuine business challenge.
                 </p>

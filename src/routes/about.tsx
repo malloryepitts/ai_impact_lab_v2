@@ -44,7 +44,7 @@ function AboutPage() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             className="heading-display text-white mb-6"
           >
-            What is the AI Impact Lab?
+            What is the AI Impact Clinic?
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -56,8 +56,8 @@ function AboutPage() {
               PLACEHOLDER: The "broader AI initiative at Wake Forest" framing below is
               intentionally vague. Verify exact wording with the faculty lead before publishing.
             */}
-            The AI Impact Lab is part of a broader AI initiative at Wake Forest University. It's a
-            newer, pilot-stage effort, and we're excited to see where it goes. The lab follows a
+            The AI Impact Clinic is part of a broader AI initiative at Wake Forest University. It's a
+            newer, pilot-stage effort, and we're excited to see where it goes. The Clinic follows a
             simple path: it starts with a fall course open to every major, and continues into a
             selective spring program where student teams work with real organizations.
           </motion.p>
@@ -77,9 +77,9 @@ function AboutPage() {
               Part of something bigger.
             </h2>
             <p className="text-lab-charcoal text-lg leading-relaxed max-w-2xl">
-              The AI Impact Lab is one part of a broader AI initiative taking shape at Wake Forest
+              The AI Impact Clinic is one part of a broader AI initiative taking shape at Wake Forest
               University, an effort spanning multiple schools and offices to help students across
-              the university engage with AI thoughtfully and effectively. The lab is an early,
+              the university engage with AI thoughtfully and effectively. The Clinic is an early,
               pilot-stage piece of that larger vision, and we're excited to see how it grows
               alongside the rest of the initiative.
             </p>
@@ -103,7 +103,7 @@ function AboutPage() {
                 <h2 className="heading-card text-lab-black mb-3">The Course</h2>
                 <p className="text-lab-charcoal leading-relaxed">
                   A one credit hour, pass/fail course open to every major. The starting point of
-                  the AI Impact Lab.
+                  the AI Impact Clinic.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-lab-gold
                                  mt-6 group-hover:text-lab-gold-dark transition-colors duration-200">
@@ -120,7 +120,7 @@ function AboutPage() {
                            motion-safe:hover:-translate-y-1 hover:bg-lab-gold-light/25"
               >
                 <p className="eyebrow mb-4">Spring</p>
-                <h2 className="heading-card text-lab-black mb-3">The AI Impact Lab</h2>
+                <h2 className="heading-card text-lab-black mb-3">The AI Impact Clinic</h2>
                 <p className="text-lab-charcoal leading-relaxed">
                   A selective continuation where student teams partner with real local organizations
                   to build and deploy AI solutions.

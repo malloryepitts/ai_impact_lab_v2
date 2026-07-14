@@ -96,7 +96,7 @@ const phases = [
       'Proposing your final project',
       'Getting feedback from your peers',
       'Presenting your work',
-      'Getting ready for the Spring AI Impact Lab',
+      'Getting ready for the Spring AI Impact Clinic',
     ],
   },
 ]
@@ -137,7 +137,7 @@ function CoursePage() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-white/60 text-xl max-w-xl leading-relaxed"
           >
-            The starting point of the AI Impact Lab. One credit hour. Open to every major.
+            The starting point of the AI Impact Clinic. One credit hour. Open to every major.
           </motion.p>
         </div>
       </section>

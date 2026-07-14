@@ -59,7 +59,7 @@ function ApplyPage() {
             <h2 className="font-display text-3xl font-semibold text-lab-black mb-6">What to expect.</h2>
             <div className="space-y-4 text-lab-charcoal leading-relaxed text-base">
               <p>
-                The AI Impact Lab course is application-based and selective. We admit students who show genuine curiosity, a willingness to engage deeply, and an interest in the practical application of AI tools across real problems.
+                The AI Impact Clinic course is application-based and selective. We admit students who show genuine curiosity, a willingness to engage deeply, and an interest in the practical application of AI tools across real problems.
               </p>
               <p>
                 The course is open to all majors and all class years. No prior technical experience is required or expected. We actively seek a diverse cohort: different majors, different perspectives, and different ways of thinking about problems.
@@ -83,7 +83,7 @@ function ApplyPage() {
                   src={LINKS.applicationForm}
                   width="100%"
                   style={{ minHeight: '800px', border: 'none' }}
-                  title="AI Impact Lab Application Form"
+                  title="AI Impact Clinic Application Form"
                   allow="camera; microphone"
                 />
                 <p className="mt-4 text-sm text-lab-medium-gray text-center">
@@ -105,7 +105,7 @@ function ApplyPage() {
                 </div>
                 <h3 className="font-display text-2xl font-semibold text-lab-black mb-3">Applications opening soon.</h3>
                 <p className="text-lab-charcoal text-base max-w-md mx-auto leading-relaxed">
-                  The application form will be live here shortly. Check back soon or reach out to the AI Impact Lab team for more information.
+                  The application form will be live here shortly. Check back soon or reach out to the AI Impact Clinic team for more information.
                 </p>
               </div>
             )}

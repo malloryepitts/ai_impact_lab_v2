@@ -9,7 +9,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="text-xl font-bold mb-2">
-              <span className="text-lab-gold">AI</span> Impact Lab
+              <span className="text-lab-gold">AI</span> Impact Clinic
             </div>
             <div className="text-sm text-white/60 mb-3">Wake Forest University</div>
             <p className="text-sm text-white/50 leading-relaxed">
@@ -26,7 +26,7 @@ export function Footer() {
                 { label: 'About', to: '/about' },
                 { label: 'Fall Course', to: '/course' },
                 { label: 'Apply', to: '/apply' },
-                { label: 'Spring Lab', to: '/lab' },
+                { label: 'Spring Clinic', to: '/lab' },
               ].map((link) => (
                 <li key={link.to}>
                   <Link to={link.to} className="text-sm text-white/60 hover:text-lab-gold transition-colors">
@@ -52,14 +52,14 @@ export function Footer() {
                 wfu.edu
               </a>
               <p className="mt-4 text-white/30 text-xs">
-                Site maintained by the AI Impact Lab initiative.
+                Site maintained by the AI Impact Clinic initiative.
               </p>
             </div>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 text-center text-xs text-white/20">
-          &copy; {new Date().getFullYear()} AI Impact Lab, Wake Forest University. All rights reserved.
+          &copy; {new Date().getFullYear()} AI Impact Clinic, Wake Forest University. All rights reserved.
         </div>
       </div>
     </footer>
