@@ -8,7 +8,7 @@ const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Course', to: '/course' },
-  { label: 'Impact Clinic', to: '/lab' },
+  { label: 'AI Impact Clinic', to: '/lab' },
 ]
 
 export function Navbar() {

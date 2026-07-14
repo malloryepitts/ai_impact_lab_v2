@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #A8924A;
+  --color-primary: #9E7E38;
   --color-primary-content: #000000;
   --color-secondary: #1a1a1a;
   --color-secondary-content: #ffffff;
-  --color-accent: #9E8A5A;
+  --color-accent: #866B30;
   --color-accent-content: #ffffff;
   --color-base-100: #ffffff;
   --color-base-200: #F7F7F5;
@@ -105,6 +105,6 @@ body {
   display: block;
   width: 20px;
   height: 1px;
-  background-color: #A8924A;
+  background-color: #9E7E38;
   flex-shrink: 0;
 }

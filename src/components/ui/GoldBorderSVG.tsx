@@ -5,7 +5,7 @@ interface GoldBorderSVGProps {
   strokeWidth?: number
 }
 
-export function GoldBorderSVG({ strokeWidth = 1 }: GoldBorderSVGProps) {
+export function GoldBorderSVG({ strokeWidth = 2.5 }: GoldBorderSVGProps) {
   const shouldReduceMotion = useReducedMotion()
 
   if (shouldReduceMotion) {

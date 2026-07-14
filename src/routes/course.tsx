@@ -1,7 +1,15 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles, Users, TrendingUp } from 'lucide-react'
+import {
+  ArrowRight, Sparkles, Users, TrendingUp,
+  Terminal, Cpu, Zap, FileText, Scale, Shield,
+  Plug, Bot, Code2, Lock, GitMerge, CheckCircle2,
+  Lightbulb, MessageCircle, Monitor, Rocket,
+  CalendarDays,
+} from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
+import { ParticleCanvas } from '@/components/ui/ParticleCanvas'
 
 export const Route = createFileRoute('/course')({
   component: CoursePage,
@@ -10,14 +18,14 @@ export const Route = createFileRoute('/course')({
 // Update once the final course name is confirmed.
 const COURSE_TITLE_PLACEHOLDER = '[Course Name Placeholder]'
 
-// Value cards — Change 4: lighter tan fill (gold-light/15)
+/* ── Value cards ─────────────────────────────────────────────────────────── */
 const valueCards = [
   {
     icon: Sparkles,
-    heading: 'Skills and knowledge',
+    heading: 'Professional-grade skills',
     body: (
       <>
-        You'll learn to use AI tools like Claude, ChatGPT, and Gemini the way professionals do:
+        You'll learn to use AI tools like Claude the way professionals do:
         designing workflows, evaluating outputs, and building real solutions to real problems.{' '}
         <strong className="font-semibold text-lab-black">
           No coding required to start, and no experience needed at all.
@@ -27,11 +35,11 @@ const valueCards = [
   },
   {
     icon: Users,
-    heading: 'Who this is for',
+    heading: 'Every major. Every background.',
     body: (
       <>
-        Every major, every background. Whether you're in computer science, business, the arts, or
-        still deciding, if you're curious and willing to work, you belong here.{' '}
+        Whether you're in computer science, business, the arts, or still deciding,
+        if you're curious and willing to work, you belong here.{' '}
         <strong className="font-semibold text-lab-black">
           The students who learn this now will be the ones who stand out later.
         </strong>
@@ -40,13 +48,13 @@ const valueCards = [
   },
   {
     icon: TrendingUp,
-    heading: 'Why it matters',
+    heading: 'An edge that lasts',
     body: (
       <>
         AI fluency is quickly becoming expected in every field, for every role. Learning to use
         these tools well is no longer optional.{' '}
         <strong className="font-semibold text-lab-black">
-          One credit hour now, for an edge that follows you into every interview, every resume,
+          1.5 credit hours now, for an edge that follows you into every interview, every resume,
           and your career.
         </strong>
       </>
@@ -54,49 +62,59 @@ const valueCards = [
   },
 ]
 
-// Curriculum phases — Change 3: restored fuller format with two-column bullets
-const phases = [
+/* ── Curriculum phases ───────────────────────────────────────────────────── */
+interface Topic {
+  icon: LucideIcon
+  text: string
+}
+
+interface Phase {
+  number: number
+  sessions: string
+  title: string
+  description: string
+  topics: Topic[]
+}
+
+const phases: Phase[] = [
   {
     number: 1,
     sessions: 'SESSIONS 1-6',
     title: 'Shared Foundations',
-    description:
-      'Learn the fundamentals of working with AI tools well. No code and no experience needed.',
+    description: 'No code or experience needed. Learn to work with AI the way professionals do.',
     topics: [
-      'Writing clear, effective prompts',
-      'Understanding how AI models actually work',
-      'Designing repeatable AI workflows',
-      'Bringing in your own documents and data',
-      "Judging when to trust an AI's answer",
-      'Using AI responsibly and ethically',
+      { icon: Terminal,  text: 'Write prompts that get you exactly what you want' },
+      { icon: Cpu,       text: 'Understand what AI is really doing, so you can push it further' },
+      { icon: Zap,       text: 'Build workflows that do hours of work in minutes' },
+      { icon: FileText,  text: 'Put your own documents and data to work' },
+      { icon: Scale,     text: "Learn when to trust AI, and when it's confidently wrong" },
+      { icon: Shield,    text: 'Use AI responsibly, and know where the limits are' },
     ],
   },
   {
     number: 2,
     sessions: 'SESSIONS 7-12',
     title: 'Building With AI',
-    description:
-      'Go further and see how AI gets built into real tools and systems. The depth adjusts to your background, whether you code or not.',
+    description: 'Go deeper. See how AI connects to real tools and systems, whether you code or not.',
     topics: [
-      'Connecting AI to other apps (working with APIs)',
-      'Giving AI tools to take real actions, not just answer',
-      'Using AI as your coding assistant',
-      'Keeping automated AI systems safe and reliable',
-      'Combining multiple steps into larger workflows',
-      'Testing AI systems to make sure they work',
+      { icon: Plug,         text: 'Connect AI to real apps and data so it can act, not just chat' },
+      { icon: Bot,          text: 'Create AI agents that carry out tasks on their own' },
+      { icon: Code2,        text: 'Build real things with AI as your coding partner' },
+      { icon: Lock,         text: 'Keep automated AI systems safe and under control' },
+      { icon: GitMerge,     text: 'Chain multiple steps into powerful workflows' },
+      { icon: CheckCircle2, text: 'Test AI systems so you know they actually work' },
     ],
   },
   {
     number: 3,
     sessions: 'SESSIONS 13-14',
     title: 'Synthesis and Showcase',
-    description:
-      'Bring everything together, propose a real project, and present what you built.',
+    description: 'Bring it all together, pitch something real, and show what you built.',
     topics: [
-      'Proposing your final project',
-      'Getting feedback from your peers',
-      'Presenting your work',
-      'Getting ready for the Spring AI Impact Clinic',
+      { icon: Lightbulb,     text: 'Pitch a real project you care about' },
+      { icon: MessageCircle, text: 'Sharpen it with feedback from your peers' },
+      { icon: Monitor,       text: 'Present what you built' },
+      { icon: Rocket,        text: 'Get ready for the Spring AI Impact Clinic' },
     ],
   },
 ]
@@ -104,16 +122,20 @@ const phases = [
 function CoursePage() {
   return (
     <>
-      {/* Page header — dark with grid */}
+      {/* Page header — dark with grid + particle canvas */}
       <section className="relative py-32 bg-[#111111] overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px)',
+              backgroundSize: '60px 60px',
+            }}
+          />
+          {/* Animated particle network — hidden when prefers-reduced-motion */}
+          <ParticleCanvas />
+        </div>
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -137,18 +159,58 @@ function CoursePage() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-white/60 text-xl max-w-xl leading-relaxed"
           >
-            The starting point of the AI Impact Clinic. One credit hour. Open to every major.
+            The starting point of the AI Impact Clinic. 1.5 credit hours. Open to every major.
           </motion.p>
         </div>
       </section>
 
-      {/*
-        Stats strip removed (Change 1).
-        Hero now flows directly into the value cards section.
-        border-t border-lab-gold provides a refined gold accent at the transition.
-      */}
+      {/* ── PLACEHOLDER: Quick-access logistics bar ──────────────────────────────
+           Wire up href values below once resources are available.
+           · Schedule: link to course calendar or schedule PDF
+           · Syllabus: link to syllabus PDF (consolidates the syllabus section)
+           · Apply Now: live link to /apply
+           ──────────────────────────────────────────────────────────────────── */}
+      <section className="bg-[#1a1a1a] border-t border-white/5">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="py-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-0">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-lab-gold shrink-0 sm:mr-6">
+              Quick Access Links
+            </p>
+            <div className="hidden sm:block w-px h-5 bg-white/10 mr-6" />
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+              <button
+                type="button"
+                disabled
+                className="flex items-center gap-2 text-base font-medium text-white/45 cursor-not-allowed"
+                aria-label="Course schedule — coming soon"
+              >
+                <CalendarDays size={17} className="shrink-0" />
+                <span>Schedule</span>
+                <span className="text-white/25 font-normal text-sm">[coming soon]</span>
+              </button>
+              <button
+                type="button"
+                disabled
+                className="flex items-center gap-2 text-base font-medium text-white/45 cursor-not-allowed"
+                aria-label="Syllabus — coming soon"
+              >
+                <FileText size={17} className="shrink-0" />
+                <span>Syllabus</span>
+                <span className="text-white/25 font-normal text-sm">[coming soon]</span>
+              </button>
+              <Link
+                to="/apply"
+                className="flex items-center gap-2 text-base font-semibold text-lab-gold hover:text-lab-gold-dark transition-colors duration-200"
+              >
+                Apply Now
+                <ArrowRight size={17} className="shrink-0" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Value cards — Change 2: max-w-6xl; Change 4: bg-lab-gold-light/15 */}
+      {/* Value cards */}
       <section className="bg-white border-t border-lab-gold section-lg">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -170,7 +232,7 @@ function CoursePage() {
         </div>
       </section>
 
-      {/* Curriculum — Change 2: max-w-6xl; Change 3: restored fuller format */}
+      {/* Curriculum */}
       <section className="bg-lab-off-white border-t border-lab-warm-gray section-lg">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -200,14 +262,17 @@ function CoursePage() {
                       <p className="text-lab-charcoal leading-relaxed mb-5">
                         {phase.description}
                       </p>
-                      {/* Two-column bullet list; single column on mobile */}
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
-                        {phase.topics.map((topic) => (
-                          <li key={topic} className="flex items-start gap-2 text-sm text-lab-charcoal">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-lab-gold shrink-0" />
-                            {topic}
-                          </li>
-                        ))}
+                      {/* Two-column bullet list with tech icons; single column on mobile */}
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
+                        {phase.topics.map((topic) => {
+                          const TopicIcon = topic.icon
+                          return (
+                            <li key={topic.text} className="flex items-start gap-2.5 text-sm text-lab-charcoal">
+                              <TopicIcon size={14} className="text-lab-gold mt-0.5 shrink-0" />
+                              {topic.text}
+                            </li>
+                          )
+                        })}
                       </ul>
                     </div>
                   </div>
@@ -218,11 +283,10 @@ function CoursePage() {
         </div>
       </section>
 
-      {/*
-        PLACEHOLDER: Full syllabus goes here. Replace this section with a link to the
-        syllabus PDF or an embedded/downloadable syllabus once it is finalized.
-      */}
-      {/* Full syllabus — placeholder */}
+      {/* ── PLACEHOLDER: Full syllabus ───────────────────────────────────────────
+           Replace this section with a link to the syllabus PDF (or embedded syllabus)
+           once it is finalized. The quick-access bar above also carries a syllabus link.
+           ──────────────────────────────────────────────────────────────────────────── */}
       <section className="bg-white border-t border-lab-warm-gray section-md">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>

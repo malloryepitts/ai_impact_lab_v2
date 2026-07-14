@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
+import { ParticleCanvas } from '@/components/ui/ParticleCanvas'
 
 export const Route = createFileRoute('/about')({
   component: AboutPage,
@@ -21,14 +22,17 @@ function AboutPage() {
     <>
       {/* Page header — dark with grid */}
       <section className="relative py-32 bg-[#111111] overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)',
+              backgroundSize: '60px 60px',
+            }}
+          />
+          <ParticleCanvas />
+        </div>
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -102,11 +106,20 @@ function AboutPage() {
                 <p className="eyebrow mb-4">Fall</p>
                 <h2 className="heading-card text-lab-black mb-3">The Course</h2>
                 <p className="text-lab-charcoal leading-relaxed">
-                  A one credit hour, pass/fail course open to every major. The starting point of
+                  A 1.5 credit hour, pass/fail course open to every major. The starting point of
                   the AI Impact Clinic.
                 </p>
+                {/* Scannable tags */}
+                <div className="flex flex-wrap items-center gap-1.5 mt-4 pt-4 border-t border-lab-gold/20">
+                  {['14 sessions', 'Pass / Fail', 'No coding required', '1.5 credit hours'].map((tag, i, arr) => (
+                    <span key={tag} className="flex items-center gap-1.5">
+                      <span className="text-[11px] font-medium text-lab-charcoal/55">{tag}</span>
+                      {i < arr.length - 1 && <span className="text-lab-gold/35 text-[11px]" aria-hidden="true">·</span>}
+                    </span>
+                  ))}
+                </div>
                 <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-lab-gold
-                                 mt-6 group-hover:text-lab-gold-dark transition-colors duration-200">
+                                 mt-4 group-hover:text-lab-gold-dark transition-colors duration-200">
                   Learn more <ArrowRight size={15} />
                 </span>
               </Link>
@@ -125,8 +138,17 @@ function AboutPage() {
                   A selective continuation where student teams partner with real local organizations
                   to build and deploy AI solutions.
                 </p>
+                {/* Scannable tags */}
+                <div className="flex flex-wrap items-center gap-1.5 mt-4 pt-4 border-t border-lab-gold/20">
+                  {['~20 students', '5 teams', 'Live client work'].map((tag, i, arr) => (
+                    <span key={tag} className="flex items-center gap-1.5">
+                      <span className="text-[11px] font-medium text-lab-charcoal/55">{tag}</span>
+                      {i < arr.length - 1 && <span className="text-lab-gold/35 text-[11px]" aria-hidden="true">·</span>}
+                    </span>
+                  ))}
+                </div>
                 <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-lab-gold
-                                 mt-6 group-hover:text-lab-gold-dark transition-colors duration-200">
+                                 mt-4 group-hover:text-lab-gold-dark transition-colors duration-200">
                   Learn more <ArrowRight size={15} />
                 </span>
               </Link>

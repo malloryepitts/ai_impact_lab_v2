@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
+import { ParticleCanvas } from '@/components/ui/ParticleCanvas'
 
 export const Route = createFileRoute('/lab')({
   component: LabPage,
@@ -12,14 +13,17 @@ function LabPage() {
     <>
       {/* Hero */}
       <section className="relative py-32 bg-[#111111] overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)',
+              backgroundSize: '60px 60px',
+            }}
+          />
+          <ParticleCanvas />
+        </div>
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
